@@ -14,11 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* กำหนดให้ทั้งหน้าเว็บใช้ฟอนต์ Sarabun จาก Google Fonts เป็นหลัก */
-        body, input, select, textarea, button, table, th, td, div, span, label, p, h1, h2, h3, .official-doc {
+        /* ตั้งค่าฟอนต์หลักของเว็บไซต์ */
+        body, input, select, textarea, button, table, th, td, div, span, label, p, h1, h2, h3 {
             font-family: 'Sarabun', 'TH Sarabun New', 'TH SarabunPSK', sans-serif !important;
             font-size: 16pt !important;
-            line-height: 1.35;
+            line-height: 1.25;
         }
 
         body {
@@ -33,9 +33,10 @@
             font-size: 16pt !important;
         }
 
+        /* ตั้งค่าหน้ากระดาษสำหรับการพิมพ์ A4 ให้อยู่ในหน้าเดียวพอดี */
         @page {
             size: A4 portrait;
-            margin: 0; 
+            margin: 10mm 15mm; 
         }
 
         @media print {
@@ -43,12 +44,13 @@
                 background-color: #ffffff !important;
                 padding: 0 !important;
                 margin: 0 !important;
+                -webkit-print-color-adjust: exact;
             }
 
             body, input, select, textarea, table, th, td, div, span, p {
                 font-family: 'Sarabun', 'TH Sarabun New', 'TH SarabunPSK', sans-serif !important;
-                font-size: 16pt !important;
-                line-height: 1.25 !important;
+                font-size: 15pt !important; /* ปรับขนาดตอนพิมพ์ให้พอดี 1 หน้ากระดาษ */
+                line-height: 1.2 !important;
             }
 
             .no-print {
@@ -59,45 +61,31 @@
                 display: block !important;
             }
 
-            .print-wrap {
-                padding: 0 !important;
-                margin: 0 !important;
-                max-width: none !important;
-            }
-
-            #formTab {
-                display: block !important;
-            }
-
-            .a4-page {
+            .print-wrap, .a4-page {
                 box-shadow: none !important;
                 border: none !important;
-                padding: 10mm 10mm 0 25mm !important;
-                margin: 0 !important;
-                box-sizing: border-box !important;
+                padding: 0 !important;
+                margin: 0 auto !important;
                 width: 100% !important;
                 max-width: 100% !important;
-                min-height: auto !important;
-            }
-
-            .print-zoom {
-                zoom: var(--print-zoom, 1);
+                height: auto !important;
+                page-break-inside: avoid !important;
             }
 
             .official-doc {
-                font-size: 16pt !important;
-                line-height: 1.25 !important;
+                font-size: 15pt !important;
             }
             
             table, th, td {
                 border-color: #000 !important;
             }
 
-            .print-tight-space {
-                margin-top: 1px !important;
-                margin-bottom: 1px !important;
-                padding-top: 1px !important;
-                padding-bottom: 1px !important;
+            /* ควบคุมระยะห่างระหว่างบล็อกไม่ให้ตกหน้ากระดาษ */
+            .space-y-4 > * + * {
+                margin-top: 0.35rem !important;
+            }
+            .space-y-3 > * + * {
+                margin-top: 0.25rem !important;
             }
         }
 
@@ -108,7 +96,7 @@
 
         .doc-table th, .doc-table td {
             border: 1px solid #000;
-            padding: 1px 4px;
+            padding: 2px 4px;
             text-align: center;
         }
 
@@ -125,8 +113,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 15px;
-            height: 15px;
+            width: 14px;
+            height: 14px;
             border: 1.5px solid #000;
             margin-right: 3px;
             vertical-align: middle;
@@ -135,7 +123,7 @@
 
         .checkbox-custom.checked::after {
             content: "✓";
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
             line-height: 1;
         }
