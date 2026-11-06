@@ -8,42 +8,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts / Fonts Import for TH Sarabun IT 9 -->
+    <!-- Google Fonts (Sarabun) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* กำหนดฟอนต์ท้องถิ่นหากมีไฟล์ THSarabunIT๙.ttf ในโฟลเดอร์ */
-        /* ฟอนต์ TH Sarabun IT๙ จะแสดงเลขอารบิก (0-9) เป็นเลขไทย (๐-๙) เสมอ
-           จึงกำหนดช่วงอักขระให้ใช้ฟอนต์นี้เฉพาะตัวอักษรไทยและเครื่องหมาย ไม่รวมตัวเลข
-           ตัวเลขจะไปใช้ฟอนต์ TH Sarabun New / PSK / Sarabun แทน ซึ่งหน้าตาเหมือนกันและเป็นเลขอารบิก */
-        @font-face {
-            font-family: 'TH Sarabun IT 9';
-            src: local('TH Sarabun IT๙'), local('TH SarabunIT๙'), local('THSarabunIT๙'),
-                 local('TH Sarabun IT9'), local('THSarabunIT9'),
-                 url('THSarabunIT๙.ttf') format('truetype'),
-                 url('THSarabunIT9.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            unicode-range: U+0000-002F, U+003A-10FFFF;
-        }
-        @font-face {
-            font-family: 'TH Sarabun IT 9';
-            src: local('TH Sarabun IT๙ Bold'), local('TH SarabunIT๙ Bold'), local('THSarabunIT๙ Bold'),
-                 local('TH Sarabun IT๙ ตัวหนา'), local('THSarabunIT๙-Bold'),
-                 url('THSarabunIT๙ Bold.ttf') format('truetype'),
-                 url('THSarabunIT9 Bold.ttf') format('truetype');
-            font-weight: bold;
-            font-style: normal;
-            unicode-range: U+0000-002F, U+003A-10FFFF;
-        }
-
-        /* ----------------------------------------------------
-           กำหนดฟอนต์ TH Sarabun IT 9 ขนาด 16pt ทั้งระบบ
-        ---------------------------------------------------- */
-        body, input, select, textarea, button, table, th, td, div, span, label, p, h1, h2, h3 {
-            font-family: 'TH Sarabun IT 9', 'TH SarabunPSK', 'TH Sarabun New', 'THSarabunNew', 'Sarabun', sans-serif !important;
+        /* กำหนดให้ทั้งหน้าเว็บใช้ฟอนต์ Sarabun จาก Google Fonts เป็นหลัก */
+        body, input, select, textarea, button, table, th, td, div, span, label, p, h1, h2, h3, .official-doc {
+            font-family: 'Sarabun', 'TH Sarabun New', 'TH SarabunPSK', sans-serif !important;
             font-size: 16pt !important;
             line-height: 1.35;
         }
@@ -53,20 +26,16 @@
         }
 
         .official-doc {
-            font-family: 'TH Sarabun IT 9', 'TH SarabunPSK', 'TH Sarabun New', 'THSarabunNew', 'Sarabun', sans-serif !important;
             color: #000;
-            line-height: 1.35;
-            font-size: 16pt !important;
         }
 
-        /* ปรับขนาดฟอนต์ในช่องกรอกข้อมูล Input/Select ให้พอดี */
         input[type="text"], input[type="number"], select {
             font-size: 16pt !important;
         }
 
         @page {
             size: A4 portrait;
-            margin: 0; /* ขอบกระดาษกำหนดด้วย padding ของ .a4-page ตอนพิมพ์ เพื่อไม่ให้ขึ้นกับการตั้งค่า Margins ของเบราว์เซอร์ */
+            margin: 0; 
         }
 
         @media print {
@@ -77,7 +46,7 @@
             }
 
             body, input, select, textarea, table, th, td, div, span, p {
-                font-family: 'TH Sarabun IT 9', 'TH SarabunPSK', 'TH Sarabun New', 'THSarabunNew', 'Sarabun', sans-serif !important;
+                font-family: 'Sarabun', 'TH Sarabun New', 'TH SarabunPSK', sans-serif !important;
                 font-size: 16pt !important;
                 line-height: 1.25 !important;
             }
@@ -103,7 +72,6 @@
             .a4-page {
                 box-shadow: none !important;
                 border: none !important;
-                /* ขอบกระดาษ: บน 1 ซม. ขวา 1 ซม. ล่าง 0 ซ้าย 2.5 ซม. */
                 padding: 10mm 10mm 0 25mm !important;
                 margin: 0 !important;
                 box-sizing: border-box !important;
@@ -178,7 +146,6 @@
             font-weight: 600;
         }
     
-        /* แสดงตราเทศบาลที่หัวใบเบิกเฉพาะหน้าจอพรีวิว ซ่อนตอนพิมพ์ */
         @media print {
             .doc-logo { display: none !important; }
         }
